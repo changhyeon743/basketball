@@ -1,0 +1,67 @@
+<html>
+    <head>
+
+    </head>
+
+
+    <body>
+        <script>
+            var Person =function(_age){
+                this.eyes=2;
+                this.age=_age;
+
+            }   
+            
+            var p=new Person(21);
+
+            Person.prototype.eyes =3;
+            Person.prototype.nose=1;
+
+
+        //------------------------------------------------------------
+
+
+            var Monster = function(name){
+                this.name = name;
+                this.level=1;
+            }
+
+            Monster.prototype.Attack = function(){
+                console.log("Monster Attack!");
+            }
+
+            Monster.prototype.Print= function(){
+                console.log("Monster : "+ this.name+", lv"+this.level);
+            }
+
+            var Orc = function(name,fingers){
+                Monster.call(this.name);
+                this.fingers = fingers;
+            }
+
+
+            var monst1=new Monster("몹1");
+            monst1.Print();
+            
+            Orc.prototype = new Monster();
+Orc.prototype= new Monster();
+Orc.prototype.constuctor = Orc;
+            var orc = new Orc("orc1", 3);
+            orc.Print();
+            console.log(orc.name);
+            
+            Orc.prototype.Speak=function()
+            {
+                console.log("orc say hi");
+            }
+            
+            Orc.prototype.Attack=function()
+            {
+                console.log("Orc Attack");
+            }
+        </script>
+
+        //추가적으로 공부하려면 자바스크립트 프로토탸입 또는 자바스크립트 객체지향 검색해 볼것
+
+    </body>
+</html>
